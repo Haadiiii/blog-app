@@ -50,4 +50,15 @@ RSpec.describe Post, type: :model do
     subject.likes_counter = 'a'
     expect(subject).to_not be_valid
   end
+
+  # add tests for your custom methods here
+  it 'should return the most recent comments' do
+    post = Post.create(title: 'test', author_id: author.id, comments_counter: 2, likes_counter: 2)
+    comment2 = Comment.create(text: 'test', author_id: author.id, post_id: post.id)
+    comment3 = Comment.create(text: 'test', author_id: author.id, post_id: post.id)
+    comment4 = Comment.create(text: 'test', author_id: author.id, post_id: post.id)
+    comment5 = Comment.create(text: 'test', author_id: author.id, post_id: post.id)
+    comment6 = Comment.create(text: 'test', author_id: author.id, post_id: post.id)
+    expect(post.most_recent_comments).to eq([comment6, comment5, comment4, comment3, comment2])
+  end
 end
