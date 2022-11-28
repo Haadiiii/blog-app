@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'users#index'
   # Defines the route for the users index page ("/users")
-  resources :users do
+  resources :users, only: [:index, :show] do
     # Defines the route for the posts index page ("/users/:user_id/posts")
-   resources :posts
+    resources :posts, only: [:index, :show]
   end
 end
