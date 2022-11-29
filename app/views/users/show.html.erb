@@ -1,1 +1,44 @@
-<p>See user profile</p>
+<div class='mt-3 d-flex align-items-center flex-column'>
+    <div class="photo-name">
+        <div class="card mb-3 border-primary" style="width: 180px;">
+            <img src="<%= @user.photo %>" alt="avatar" />
+        </div>
+        <div class="card-body">
+            <h2><%= @user.name %></h2>
+        </div>
+                <div class='d-flex justify-content-end' style="width: 350px;">
+          <p class="card-text"><small class="text-muted">Number of posts: <%= @user.posts_counter %></small></p>
+        </div>
+    </div>
+     <div class="card mb-3 border-info" style="width: 680px;">
+    <h1 class='card-header bg-info'>Bio</h1>
+    <div class="card-body">
+      <p class="card-text"><%= @user.bio %></p>
+    </div>
+  </div>
+  </div>
+<div>
+
+<div class='mt-3 d-flex align-items-center flex-column'>
+    <div class="card mb-3 border-danger" style="width: 680px;">
+        <h2 class="card-title bg-info">Posts</h2>
+
+            <% @user.posts.each do |post| %>
+                    <%= link_to post.title, user_post_path(@user, post) %>
+        <ul class="card-body">
+                <li class="card-text">
+                    <%= post.text %>
+                </li>
+        </ul>
+                <div class='card-footer d-flex gap-2 justify-content-end'>
+                <p class="card-text"><small class="text-muted">Comments: <%= post.comments_counter %></small></p>
+                |
+                <p class="card-text"><small class="text-muted">Likes: <%= post.likes_counter %></small></p>
+            </div>
+            <% end %>
+
+        <button  class="btn mb-5">
+        <%= link_to "See All Posts", user_posts_path(@user) %>
+    </button>
+    </div>
+</div>
