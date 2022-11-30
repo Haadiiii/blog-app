@@ -23,9 +23,8 @@
 </div>
 <div>
   <div class="mt-3 d-flex align-items-center flex-column">
+    <h2 class="card-title bg-info">Most Recent Posts</h2>
     <div class="card mb-3 border-danger" style="width: 680px">
-      <h2 class="card-title bg-info">Posts</h2>
-
       <% @user.most_recent_posts.each do |post| %> <%= link_to post.title,
       user_post_path(@user, post) %>
       <ul class="card-body">
