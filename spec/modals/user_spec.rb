@@ -31,8 +31,6 @@ RSpec.describe User, type: :model do
     post2 = Post.create(title: 'test', author_id: user.id, comments_counter: 2, likes_counter: 2)
     post3 = Post.create(title: 'test', author_id: user.id, comments_counter: 2, likes_counter: 2)
     post4 = Post.create(title: 'test', author_id: user.id, comments_counter: 2, likes_counter: 2)
-    post5 = Post.create(title: 'test', author_id: user.id, comments_counter: 2, likes_counter: 2)
-    post6 = Post.create(title: 'test', author_id: user.id, comments_counter: 2, likes_counter: 2)
-    expect(user.most_recent_posts).to eq([post6, post5, post4, post3, post2])
+    expect(user.most_recent_posts).to eq([post4, post3, post2])
   end
 end
