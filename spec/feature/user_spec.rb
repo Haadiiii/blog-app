@@ -74,5 +74,4 @@ RSpec.describe "UserShows", type: :system do
       page.has_content?('John')
     end
   end
-
 end
