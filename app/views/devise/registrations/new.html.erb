@@ -1,0 +1,66 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid"
+          alt="Phone image" />
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <%= render "devise/shared/error_messages" , resource: resource %>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <div class="form-outline mb-4">
+                <%= f.label :name %><br />
+                  <%= f.text_field :name, autofocus: true, autocomplete: "name" , class: "form-control form-control-lg"
+                    %>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email" ,
+                    class: "form-control form-control-lg" %>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <%= f.label :password %>
+                  <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %>
+                      <br />
+                      <%= f.password_field :password, autocomplete: "new-password" ,
+                        class: "form-control form-control-lg" %>
+              </div>
+
+              <div class="form-outline mb-4">
+                <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password" ,
+                    class: "form-control form-control-lg" %>
+              </div>
+
+              <!-- Submit button -->
+                <%= f.submit "Sign up" , class: "btn btn-primary btn-lg btn-block" , data: {turbo: false} %>
+              <% end %>
+                <%= render "devise/shared/links" %>
+
+                  <div class="divider d-flex align-items-center my-4">
+                    <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+                  </div>
+
+                  <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!" role="button">
+                    <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
+                  </a>
+                  <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!" role="button">
+                    <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
+      </div>
+      <div
+class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+<!-- Copyright -->
+<div class="text-white mb-3 mb-md-0">
+  Copyright © 2022. All rights reserved.
+</div>
+</div>
+    
+  </div>
+ 
+</section>
