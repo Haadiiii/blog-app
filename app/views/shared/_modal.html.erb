@@ -1,0 +1,10 @@
+<div class="collapse" id="collapseExample">
+  <div class="mt-3 mb-5 align-items-center flex-column">
+    <h4>Add new Comment</h4>
+    <%= form_with model: @comment, url: user_post_comments_path(post_id:
+    post.id), method: :post, class: 'form' do |f|%> <%= f.text_area :text,
+    class:"form-control" %>
+    <br />
+    <%= f.submit "Comment", class:"btn btn-primary", data: {turbo: false} %> <% end %>
+  </div>
+</div>

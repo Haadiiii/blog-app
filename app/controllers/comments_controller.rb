@@ -9,14 +9,14 @@ class CommentsController < ApplicationController
     @comments.post_id = @current_post.id
     @comments.author_id = current_user.id
     if @comments.save
-      flash[:success] = 'New comment saved successfully'
-      redirect_to "/users/#{@current_post.author.id}/posts/#{@current_post.id}"
+      redirect_to user_posts_path(@current_post.author_id, @current_post.id), notice: 'New comment saved successfully'
 
     else
-      flash[:error] = 'Something went wrong'
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: 'Something went wrong'
     end
   end
+
+  private
 
   def comment_params
     params.permit(:text)

@@ -10,14 +10,10 @@ class LikesController < ApplicationController
     @like.author_id = current_user.id
     if @like.save
       flash[:success] = 'New like saved successfully'
-      redirect_to user_post_path(current_user, @current_post)
+      redirect_to user_posts_path(@current_post.author_id, @current_post.id)
     else
       flash[:error] = 'Something went wrong'
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def like_params
-    params.permit(:text)
   end
 end
