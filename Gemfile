@@ -5,8 +5,6 @@ ruby '3.0.4'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-gem 'cancancan'
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
 
@@ -47,6 +45,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
+
+# cancancan
+gem 'cancancan'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
