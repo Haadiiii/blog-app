@@ -4,10 +4,13 @@ class Api::UsersController < Api::ApplicationController
     authors = User.all.order(:id)
     render json: authors, status: :ok
   end
+
   def show
     render json: @author, status: :ok
   end
+
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_author
     @author = User.find(params[:id])
