@@ -15,9 +15,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = 'New user created successfully'
       session[:user_id] = @user.id
       redirect_to @user
     else
+      flash[:error] = 'Something went wrong'
       render :new, status: :unprocessable_entity
     end
   end
@@ -31,6 +33,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user
     else
+      flash[:error] = 'Something went wrong'
       render :edit, status: :unprocessable_entity
     end
   end
